@@ -5,14 +5,24 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ContactoService {
 
+  // Colección de contactos.
+  private _contactos: string[] = [
+    'Tim Cook',
+    'Elon Musk',
+    'Bill Gates',
+    'Chiquito de la Calzada'
+  ];
+
   // Obtiene una colección de contactos.
   obtenerContactos(): string[] {
-    return [
-      'Tim Cook',
-      'Elon Musk',
-      'Bill Gates',
-      'Chiquito de la Calzada'
-    ];
+    return this._contactos;
+  }
+
+  // Elimina el contacto indicado.
+  eliminarContacto(contacto: string): void {
+    this._contactos = this._contactos.filter((c: string): boolean => {
+      return c !== contacto;
+    });
   }
 
 }

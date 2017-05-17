@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
 
   // Este manejador se encarga de mostrar un mensaje con el contacto indicado.
   mostrarContactoSeleccionado(contacto: string): void {
-    alert(`Contacto seleccionado: ${contacto}`);
+    this._contactoService.eliminarContacto(contacto);
+    this._listaContactos = this._contactoService.obtenerContactos();
   }
 }
