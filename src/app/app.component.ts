@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ContactoService } from './contacto.service';
-
+import { Contacto } from './contacto';
 
 @Component({
   // Selector CSS del elemento donde se instanciará el componente.
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   // Los atributos de clase no necesitan ser definidos con 'let'.
   // Aunque los atributos se marquen como privados, siguen siendo visibles para el template.
   private _title: string;
-  private _listaContactos: string[];
+  private _listaContactos: Contacto[];
 
   // Para hacer una inyección de dependencias debemos indicar en el
   // constructor de una clase un parámetro tipado precisamente con
@@ -30,9 +30,11 @@ export class AppComponent implements OnInit {
     this._listaContactos = this._contactoService.obtenerContactos();
   }
 
-  // Este manejador se encarga de mostrar un mensaje con el contacto indicado.
-  mostrarContactoSeleccionado(contacto: string): void {
-    this._contactoService.eliminarContacto(contacto);
-    this._listaContactos = this._contactoService.obtenerContactos();
+  // Este manejador se encarga de mostrar un mensaje de aviso de eliminación con el contacto indicado.
+  avisarEliminacionContacto(contacto: Contacto): void {
+    if (confirm(`¿Estás seguro de eliminar a ${contacto.nombre}?`)) {
+      this._contactoService.eliminarContacto(contacto);
+      this._listaContactos = this._contactoService.obtenerContactos();
+    }
   }
 }

@@ -1,27 +1,29 @@
 import { Injectable } from '@angular/core';
 
+import { Contacto } from './contacto';
+
 // Una clase decorada con 'Injectable' se comporta como un servicio. Este decorador
 // hace posible que el servicio pueda inyectarse como dependencia en otras clases.
 @Injectable()
 export class ContactoService {
 
   // Colección de contactos.
-  private _contactos: string[] = [
-    'Tim Cook',
-    'Elon Musk',
-    'Bill Gates',
-    'Chiquito de la Calzada'
+  private _contactos: Contacto[] = [
+    new Contacto('Tim Cook'),
+    new Contacto('Elon Musk'),
+    new Contacto('Bill Gates'),
+    new Contacto('Chiquito de la Calzada')
   ];
 
   // Obtiene una colección de contactos.
-  obtenerContactos(): string[] {
+  obtenerContactos(): Contacto[] {
     return this._contactos;
   }
 
   // Elimina el contacto indicado.
-  eliminarContacto(contacto: string): void {
-    this._contactos = this._contactos.filter((c: string): boolean => {
-      return c !== contacto;
+  eliminarContacto(contacto: Contacto): void {
+    this._contactos = this._contactos.filter((c: Contacto): boolean => {
+      return c.nombre !== contacto.nombre;
     });
   }
 
