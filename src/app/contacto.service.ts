@@ -20,6 +20,11 @@ export class ContactoService {
     return this._contactos;
   }
 
+  // Añadir el contato indicado.
+  crearContacto(contacto: Contacto): void {
+    this._contactos.push(contacto);
+  }
+
   // Elimina el contacto indicado.
   eliminarContacto(contacto: Contacto): void {
     this._contactos = this._contactos.filter((c: Contacto): boolean => {
