@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 import { Contacto } from '../contacto';
 
@@ -9,7 +10,6 @@ import { Contacto } from '../contacto';
 })
 export class FormularioAltaComponent implements OnInit {
 
-  nombre: string;
   @Output() alCrearContacto: EventEmitter<Contacto>;
 
   constructor() {
@@ -19,9 +19,9 @@ export class FormularioAltaComponent implements OnInit {
   ngOnInit() {
   }
 
-  notificarCreacionContacto(): void {
-    // Creamos un nuevo objeto de tipo 'Contacto' a partir del nombre intruducido en la caja de texto.
-    let contacto: Contacto = new Contacto(this.nombre);
+  notificarCreacionContacto(formulario: FormGroup): void {
+    // Creamos un nuevo contacto a partir de los datos del formulario.
+    let contacto: Contacto = formulario.value as Contacto;
     // Notificamos el objeto contacto creado.
     this.alCrearContacto.emit(contacto);
   }
