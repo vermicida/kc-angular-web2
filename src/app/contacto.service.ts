@@ -13,14 +13,6 @@ import { Contacto } from './contacto';
 @Injectable()
 export class ContactoService {
 
-  // Colección de contactos.
-  private _contactos: Contacto[] = [
-    new Contacto('Tim Cook'),
-    new Contacto('Elon Musk'),
-    new Contacto('Bill Gates'),
-    new Contacto('Chiquito de la Calzada')
-  ];
-
   // Para poder hacer peticiones HTTP necesitamos el cliente correspondiente. Tenemos
   // que inyectarlo como dependencia para usarlo en el servicio.
   constructor(private _http: Http) { }
@@ -47,10 +39,12 @@ export class ContactoService {
   }
 
   // Elimina el contacto indicado.
-  eliminarContacto(contacto: Contacto): void {
-    this._contactos = this._contactos.filter((c: Contacto): boolean => {
-      return c.nombre !== contacto.nombre;
-    });
+  eliminarContacto(contacto: Contacto): Observable<Contacto> {
+    return this._http
+               .delete(`http://localhost:3004/contactos/${contacto.id}`)
+               .map(() => {
+                 return contacto;
+               });
   }
 
 }

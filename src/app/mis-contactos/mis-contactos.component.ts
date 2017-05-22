@@ -32,8 +32,13 @@ export class MisContactosComponent implements OnInit {
   // Este manejador se encarga de mostrar un mensaje de aviso de eliminación con el contacto indicado.
   avisarEliminacionContacto(contacto: Contacto): void {
     if (confirm(`¿Estás seguro de eliminar a ${contacto.nombre}?`)) {
-      this._contactoService.eliminarContacto(contacto);
-      //this._listaContactos = this._contactoService.obtenerContactos();
+      this._contactoService
+          .eliminarContacto(contacto)
+          .subscribe((contactoEliminado: Contacto) => {
+            this._listaContactos = this._listaContactos.filter((c: Contacto): boolean => {
+              return c.id !== contactoEliminado.id;
+            });
+          });
     }
   }
 
