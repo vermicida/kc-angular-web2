@@ -1,28 +1,52 @@
 {
   "contactos": [
     {
-      "nombre": "Espinete",
-      "email": "",
-      "movil": "",
-      "facebook": "",
-      "twitter": "",
+      "nombre": "Elon Musk",
+      "email": "elon.musk@tesla.com",
+      "movil": "666 777 888",
+      "facebook": "Elon-Musk",
+      "twitter": "@elonmusk",
       "id": 1
     },
     {
       "nombre": "Bill Gates",
-      "email": "",
-      "movil": "",
-      "facebook": "",
-      "twitter": "",
+      "email": "bill.gates@microsoft.com",
+      "movil": "555 666 999",
+      "facebook": "BillGates",
+      "twitter": "@BillGates",
       "id": 2
     },
     {
       "nombre": "Tim Cook",
+      "email": "tim.cook@apple.com",
+      "movil": "444 222 333",
+      "facebook": "",
+      "twitter": "@tim_cook",
+      "id": 3
+    },
+    {
+      "nombre": "Sundar Pichai",
       "email": "",
+      "movil": "777 333 222",
+      "facebook": "",
+      "twitter": "@sundarpichai",
+      "id": 4
+    },
+    {
+      "nombre": "Satya Nadella",
+      "email": "satya.nadella@microsoft.com",
       "movil": "",
       "facebook": "",
-      "twitter": "",
-      "id": 3
+      "twitter": "@satyanadella",
+      "id": 5
+    },
+    {
+      "nombre": "Steve Wozniak",
+      "email": "",
+      "movil": "",
+      "facebook": "stevewoz",
+      "twitter": "@stevewoz",
+      "id": 6
     }
   ]
 }
