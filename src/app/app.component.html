@@ -1,18 +1,26 @@
-<!-- Título -->
-<h1>Super Agenda</h1>
+<div class="container">
 
-<!-- Barra navegación -->
-<nav>
-  <ul>
-    <li>
-      <!-- Para navegar a una ruta definida desde un template, usamos la directiva RouterLink -->
-      <a routerLink="/mis-contactos">Mis Contactos</a>
-    </li>
-    <li>
-      <a routerLink="/nuevo-contacto">Nuevo Contacto</a>
-    </li>
-  </ul>
-</nav>
+  <!-- Título -->
+  <header>
+    <h1>Super Agenda</h1>
+  </header>
 
-<!-- Zona dinámica -->
-<router-outlet></router-outlet>
+  <!-- Barra navegación -->
+  <nav>
+    <ul>
+      <li>
+        <!-- Para navegar a una ruta definida desde un template, usamos la directiva RouterLink -->
+        <a routerLink="/mis-contactos"
+           routerLinkActive="marcada">Mis Contactos</a>
+      </li>
+      <li>
+        <a routerLink="/nuevo-contacto"
+           routerLinkActive="marcada">Nuevo Contacto</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Zona dinámica -->
+  <router-outlet></router-outlet>
+
+</div>

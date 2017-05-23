@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import { Contacto } from '../contacto';
 
@@ -7,7 +7,7 @@ import { Contacto } from '../contacto';
   templateUrl: './lista-contactos.component.html',
   styleUrls: ['./lista-contactos.component.css']
 })
-export class ListaContactosComponent implements OnInit {
+export class ListaContactosComponent {
 
   // Con el decorador 'Input' exponemos un atributo al componente padre para que pueda pasarnos datos (Padre > Hijo).
   @Input() contactos: Contacto[];
@@ -18,19 +18,22 @@ export class ListaContactosComponent implements OnInit {
   sentido se realiza a través de eventos, este atributo debe ser un 'EventEmitter'.
   */
   @Output() alEliminarContacto: EventEmitter<Contacto>;
+  @Output() alSeleccionarContacto: EventEmitter<Contacto>;
 
   constructor() {
     // Instanciamos el 'EventEmitter'.
     this.alEliminarContacto = new EventEmitter<Contacto>();
-  }
-
-  ngOnInit() {
+    this.alSeleccionarContacto = new EventEmitter<Contacto>();
   }
 
   // Este manejador se encarga de notificar al componente padre el contacto indicado.
   notificarEliminacionContacto(contacto: Contacto): void {
     // Para notificar, basta con ejecutar la función 'emit' del atributo 'EventEmitter'.
     this.alEliminarContacto.emit(contacto);
+  }
+
+  notificarSeleccionContacto(contacto: Contacto): void {
+    this.alSeleccionarContacto.emit(contacto);
   }
 
 }

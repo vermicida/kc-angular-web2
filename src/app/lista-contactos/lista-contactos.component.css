@@ -1,4 +1,13 @@
+ul {
+  list-style: none;
+}
 
-.verde {
-  background: olivedrab;
+li {
+  margin: 0;
+  padding: 6px 14px;
+}
+
+li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
 }
