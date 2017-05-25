@@ -10,7 +10,7 @@ import { Contacto } from '../contacto';
 })
 export class MisContactosComponent implements OnInit {
 
-  private _listaContactos: Contacto[];
+  _listaContactos: Contacto[];
   private _contactoSeleccionado: Contacto;
 
   // Para hacer una inyección de dependencias debemos indicar en el
